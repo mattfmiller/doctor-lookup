@@ -12,16 +12,19 @@ This webpage will allow a user to ... more detailed.
 
 | Specification | Input | Output |
 | --- | --- | --- |
-| The program will...| Input: | Output: |
+| The program should successfully make an API request to BetterDoctor | Input: Submit | Output: 200 OK |
+| The program should return the results of the API request using a promise | Input: resolve(request.response) | Output: .then(function(response){ }); |
+| If the API request results in an error, the program should return a notification that states what that error was | Input: reject(Error(request.statusText)) | Output: function(error); |
+| If the query does not return any results, the program should return that no results match the query | Input: Doctor Name: "*&$!" | Output: "Your search returned no matches." |
 
 ## Setup/Installation Requirements
 
-* View program by cloning repository from _URL_.
+* View program by cloning repository from https://github.com/mattfmiller/doctor-lookup
 * Run 'npm install' in project root directory in terminal.
 * Run 'npm run build' in terminal to bundle and build project distribution folder.
 * Run 'npm test' in terminal to view jasmine tests
 * Run 'npm run start' in terminal to view project in development mode.
-* If needed, create .env file in project's root directory that contains your API keys in the form: API_KEY=[YOUR API_KEY GOES HERE]
+* If needed, create .env file in project's root directory that contains your API keys in the form: exports.apiKey=[YOUR API_KEY GOES HERE]
 
 ## Known Bugs
 
