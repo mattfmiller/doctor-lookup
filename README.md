@@ -1,12 +1,12 @@
-# Project Name
+# Doctor Lookup
 
-#### A brief program description
+#### Allows users to look up doctors in the portland area
 
 #### By _**Matt Miller**_
 
 ## Description
 
-This webpage will allow a user to ... more detailed.
+This webpage will return a list of doctors in the portland area based on an input of name, medical issue, or specialty.
 
 #### Specifications
 
