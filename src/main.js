@@ -30,9 +30,12 @@ let displayError = function (error) {
 
 $(document).ready(function(){
   $("#button").click(function(){
+    $("#doctor-info").empty();
     let search = new APICall();
     let medicalIssue = $("#medical-issue").val();
+    $("#medical-issue").val("");
     let doctorName = $("#doctor-name").val();
+    $("#doctor-name").val("");
 
     search.betterDoctorApiCall(medicalIssue, doctorName).then(function(response) {
       let result = JSON.parse(response);
