@@ -19,4 +19,4 @@ class APICall {
   }
 }
 
-export { APICall }
+export { APICall };
