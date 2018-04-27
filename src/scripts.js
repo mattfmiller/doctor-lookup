@@ -1,4 +1,4 @@
-class ApiCall {
+class APICall {
 
   betterDoctorApiCall(medicalIssue, name) {
     let promise = new Promise(function(resolve, reject) {
@@ -18,4 +18,4 @@ class ApiCall {
   }
 }
 
-export { ApiCall }
+export { APICall }
