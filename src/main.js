@@ -11,11 +11,11 @@ let displayResults = function(result) {
   } else {
     for (var i = 0; i < result.data.length; i++) {
       let doctor = new Doctor(result.data[i]);
-      $("#doctor-info").append(`<strong>${doctor.name}</strong><br>
+      $("#doctor-info ul").append(`<li><strong>${doctor.name}</strong><br>
       ${doctor.address}<br>
       ${doctor.phone}<br>
       ${doctor.website}<br>
-      ${doctor.accepting}<br>`
+      ${doctor.accepting}<br></li>`
       )
     }
   }
@@ -27,7 +27,7 @@ let displayError = function (error) {
 
 $(document).ready(function(){
   $("#button").click(function(){
-    $("#doctor-info").empty();
+    $(".results").empty();
     let search = new APICall();
     let medicalIssue = $("#medical-issue").val();
     $("#medical-issue").val("");
