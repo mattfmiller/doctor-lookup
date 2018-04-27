@@ -15,6 +15,9 @@ let displayResults = function(result) {
       ${result.data[i].practices[0].visit_address.city}, ${result.data[i].practices[0].visit_address.state} ${result.data[i].practices[0].visit_address.zip}</p>
       <p>Phone: ${result.data[i].practices[0].phones[0].number}</p>
       `);
+      if (result.data[i].practices[0].website !== undefined) {
+        $("#doctor-info").append(`<p>Website: ${result.data[i].practices[0].website}<p>`);
+      }
       if (result.data[i].practices[0].accepts_new_patients === true) {
         $("#doctor-info").append("Accepting New Patients: Yes");
       } else {
