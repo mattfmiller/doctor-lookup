@@ -50,8 +50,10 @@ $(document).ready(function(){
     $("#medical-issue").val("");
     let doctorName = $("#doctor-name").val();
     $("#doctor-name").val("");
+    let specialty = $("#specialties").val();
+    $("#specialties").val("");
 
-    search.betterDoctorApiCall(medicalIssue, doctorName).then(function(response) {
+    search.betterDoctorApiCall(medicalIssue, doctorName, specialty).then(function(response) {
       let result = JSON.parse(response);
       console.log(result);
       displayResults(result);
