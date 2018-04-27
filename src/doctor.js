@@ -24,6 +24,14 @@ class Doctor {
     } else {
       this.accepting = "Accepting new patients: No"
     }
+
+    this.specialties = [];
+  }
+
+  populateSpecialties(data) {
+    for (var i = 0; i < data.specialties.length; i++) {
+      this.specialties.push(` ${data.specialties[i].actor}`);
+    }
   }
 }
 

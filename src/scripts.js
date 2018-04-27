@@ -22,7 +22,7 @@ class APICall {
     let promise = new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
       let error;
-      let url =`https://api.betterdoctor.com/2016-03-01/specialties?user_key=${process.env.exports.apiKey}`;
+      let url =`https://api.betterdoctor.com/2016-03-01/specialties?limit=25&user_key=${process.env.exports.apiKey}`;
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);

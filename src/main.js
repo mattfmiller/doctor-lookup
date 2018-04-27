@@ -19,11 +19,13 @@ let displayResults = function(result) {
   } else {
     for (var i = 0; i < result.data.length; i++) {
       let doctor = new Doctor(result.data[i]);
+      doctor.populateSpecialties(result.data[i]);
       $("#doctor-info ul").append(`<li><strong>${doctor.name}</strong><br>
       ${doctor.address}<br>
       ${doctor.phone}<br>
       ${doctor.website}<br>
-      ${doctor.accepting}<br></li>`
+      ${doctor.accepting}<br>
+      Specialties: ${doctor.specialties}<br></li>`
       )
     }
   }
@@ -37,7 +39,6 @@ $(document).ready(function(){
   let specialtiesCall = new APICall();
   specialtiesCall.specialtyApiCall().then(function(response) {
     let result = JSON.parse(response);
-    console.log(result);
     specialtiesSelectBox(result);
   }, function(error) {
     displayError(error);
@@ -55,7 +56,6 @@ $(document).ready(function(){
 
     search.betterDoctorApiCall(medicalIssue, doctorName, specialty).then(function(response) {
       let result = JSON.parse(response);
-      console.log(result);
       displayResults(result);
     }, function(error) {
       displayError(error);
