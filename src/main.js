@@ -13,15 +13,15 @@ let displayResults = function(result) {
     <p>Phone: ${result.data[i].practices[0].phones[0].number}</p>
     `);
     if (result.data[i].practices[0].accepts_new_patients === true) {
-      $("#doctor-info").append("Accepting New Patients: Yes")
+      $("#doctor-info").append("Accepting New Patients: Yes");
     } else {
-      $("#doctor-info").append("Accepting New Patients: No")
+      $("#doctor-info").append("Accepting New Patients: No");
     }
   }
 }
 
-let displayError = function () {
-
+let displayError = function (error) {
+  $("#doctor-info").append(`There was an error while processig your request: ${error.message}`);
 }
 
 $(document).ready(function(){
@@ -34,8 +34,8 @@ $(document).ready(function(){
       let result = JSON.parse(response);
       console.log(result);
       displayResults(result);
-    }, function() {
-      displayError();
+    }, function(error) {
+      displayError(error);
     });
   });
 });
