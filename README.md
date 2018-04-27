@@ -13,11 +13,10 @@ This webpage will allow a user to ... more detailed.
 | Specification | Input | Output |
 | --- | --- | --- |
 | The program should successfully make an API request to BetterDoctor | Input: Submit | Output: 200 OK |
-| The program should return the results of the API request using a promise | Input: Submit | Output: .then(function(response){ }); |
-| The program should return Portland doctors for an API request | Input: Submit | Output: List of portland area doctors |
-| The program should make an API request for a given query of medical issue | Input: Headache | Output: List of portland area doctors who treat headaches |
-| If the API request results in an error, the program should return a notification that states what that error was | Input: reject(Error(request.statusText)) | Output: function(error); |
-| If the query does not return any results, the program should return that no results match the query | Input: Doctor Name: "*&$!" | Output: "Your search returned no matches." |
+| The program should return Portland doctors from API request | Input: Submit | Output: List of portland area doctors |
+| The program should make an API request for a given query of medical issue | Input: "Ear" | Output: List of portland area doctors who treat ear issues |
+| If the API request results in an error, the program should return a notification that states what that error was | Input: "Ear" (with wrong API key) | Output: "There was an error: Unauthorized" |
+| If the query does not return any results, the program should return that no results match the query | Input: "*&$!" | Output: "Your search returned no matches." |
 
 ## Setup/Installation Requirements
 
@@ -34,7 +33,7 @@ N/A
 
 ## Support and contact details
 
-For Support, contact: matt.f.miller@live.com
+For support, contact: matt.f.miller@live.com
 
 ## Technologies Used
 
