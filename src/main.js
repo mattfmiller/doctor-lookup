@@ -5,6 +5,14 @@ import './styles.css';
 import { APICall } from './scripts.js'
 import { Doctor } from './doctor.js'
 
+let specialtiesSelectBox = function(result) {
+  if (result.data.length !== 0) {
+    for (var i = 0; i < result.data.length; i++) {
+      $("#specialties").append(`<option value ="${result.data[i].uid}">${result.data[i].actor}</option>`);
+    }
+  }
+}
+
 let displayResults = function(result) {
   if (result.data.length === 0) {
     $("#doctor-info").append("There were no matching doctors for your search.");
@@ -26,6 +34,15 @@ let displayError = function (error) {
 }
 
 $(document).ready(function(){
+  let specialtiesCall = new APICall();
+  specialtiesCall.specialtyApiCall().then(function(response) {
+    let result = JSON.parse(response);
+    console.log(result);
+    specialtiesSelectBox(result);
+  }, function(error) {
+    displayError(error);
+  });
+
   $("#button").click(function(){
     $(".results").empty();
     let search = new APICall();
