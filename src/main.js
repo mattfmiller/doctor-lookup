@@ -2,8 +2,8 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { APICall } from './scripts.js'
-import { Doctor } from './doctor.js'
+import { APICall } from './scripts.js';
+import { Doctor } from './doctor.js';
 
 let specialtiesSelectBox = function(result) {
   if (result.data.length !== 0) {
@@ -11,7 +11,7 @@ let specialtiesSelectBox = function(result) {
       $("#specialties").append(`<option value ="${result.data[i].uid}">${result.data[i].actor}</option>`);
     }
   }
-}
+};
 
 let displayResults = function(result) {
   if (result.data.length === 0) {
@@ -26,14 +26,14 @@ let displayResults = function(result) {
       ${doctor.website}<br>
       ${doctor.accepting}<br>
       Specialties: ${doctor.specialties}<br></li>`
-      )
+      );
     }
   }
-}
+};
 
 let displayError = function (error) {
   $("#doctor-info").append(`There was an error while processinsg your request: ${error.message}`);
-}
+};
 
 $(document).ready(function(){
   let specialtiesCall = new APICall();
